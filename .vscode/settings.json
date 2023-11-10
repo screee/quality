@@ -1,0 +1,12 @@
+{
+  "cSpell.words": ["geocode", "hillshade", "maplibre", "maplibregl", "maxzoom", "minzoom"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "prettier.enable": true
+}

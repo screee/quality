@@ -1,0 +1,28 @@
+{
+  "bin": {
+    "scree-scripts": "./src/cli.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.45.0",
+    "eslint-config-mourner": "^3.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "license": "MIT",
+  "main": "./src/eslint.js",
+  "name": "@scree/eslint-config",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint-fix": "yarn tsc --noEmit && yarn eslint . --fix && yarn prettier --write .",
+    "lint": "yarn tsc --noEmit && eslint . && prettier . --check",
+    "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then echo \"Aborting due to unstaged changes\"; exit 1; fi; (yarn run check-fix && git add -A)",
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\""
+  },
+  "version": "0.1.0"
+}
