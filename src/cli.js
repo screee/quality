@@ -36,7 +36,7 @@ try {
 async function init() {
   const files = [
     '.eslintignore',
-    '.eslintrc.json',
+    '.eslintrc',
     '.gitignore',
     '.prettierignore',
     '.prettierrc',
@@ -50,7 +50,7 @@ async function init() {
     try {
       await FS.promises.copyFile(src, dst, FS.constants.COPYFILE_EXCL)
     } catch (error) {
-      if (error.code !== 'EEXIST') { throw error }
+      if (error.code == 'EEXIST') { console.warn('Not overwriting ' + file) } else { throw error }
     }
 
     return dst
