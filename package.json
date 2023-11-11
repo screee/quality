@@ -28,8 +28,7 @@
     "lint": "yarn tsc --noEmit && eslint . && prettier . --check",
     "lint-fix": "yarn tsc --noEmit && yarn eslint . --fix && yarn prettier --write .",
     "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\"",
-    "publish-both": "yarn publish && cd src/eslint && yarn publish"
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\""
   },
-  "version": "0.4.0"
+  "version": "0.5.0"
 }
