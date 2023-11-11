@@ -32,7 +32,7 @@ async function script(name) {
     }
   } else {
     console.error(
-      `${name} is not a valid command. Valid commands are: ${allowedScripts.join(',')}`,
+      `${name} is not a valid command. Valid commands are: ${allowedScripts.join(', ')}`,
     );
     process.exit(1);
   }
@@ -56,6 +56,7 @@ async function init() {
 
         try {
           await FS.promises.copyFile(src, dst, FS.constants.COPYFILE_EXCL);
+          console.warn(`Added ${file}`);
         } catch (error) {
           if (error.code == 'EEXIST') {
             console.warn(`Not overwriting ${file}`);
