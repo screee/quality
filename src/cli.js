@@ -7,18 +7,19 @@ const package = require('../package.json');
 const FS = require('fs');
 const Path = require('path');
 
+const command = process.argv[2];
 if (command === 'init') {
   init();
 } else {
-  script(process.argv[2]);
+  script(command);
 }
 
-async function script(command) {
-  const allowedCommands = ['lint', 'lint-fix', 'preinstall', 'precommit', 'init'];
+async function script(name) {
+  const allowedScripts = ['lint', 'lint-fix', 'preinstall', 'precommit'];
 
-  if (allowedCommands.includes(command)) {
+  if (allowedScripts.includes(name)) {
     try {
-      exec(package.scripts[command], {
+      exec(package.scripts[name], {
         stdio: {
           stdin: process.stdin,
           stdout: process.stdout,
@@ -31,7 +32,7 @@ async function script(command) {
     }
   } else {
     console.error(
-      `${command} is not a valid command. Valid commands are: ${allowedCommands.join(',')}`,
+      `${name} is not a valid command. Valid commands are: ${allowedScripts.join(',')}`,
     );
     process.exit(1);
   }
