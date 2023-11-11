@@ -20,9 +20,10 @@ async function script(name) {
 
   if (allowedScripts.includes(name)) {
     // TODO allow console color
-    const process = exec(package.scripts[name]);
-    process.stdout.on('data', data => console.log(data));
-    process.stderr.on('data', data => console.error(data));
+    // TODO move implementations into separate file
+    const p = exec(package.scripts[name]);
+    p.stdout.on('data', data => process.stdout.write(data));
+    p.stderr.on('data', data => process.stderr.write(data));
   } else {
     console.error(
       `${name} is not a valid command. Valid commands are: ${allowedScripts.join(', ')}`,
