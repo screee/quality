@@ -7,6 +7,7 @@ const package = require('../package.json');
 const FS = require('fs');
 const Path = require('path');
 
+// TODO add help command
 const command = process.argv[2];
 if (command === 'init') {
   init();
@@ -18,18 +19,10 @@ async function script(name) {
   const allowedScripts = ['lint', 'lint-fix', 'preinstall', 'precommit', 'install-precommit'];
 
   if (allowedScripts.includes(name)) {
-    try {
-      exec(package.scripts[name], {
-        stdio: {
-          stdin: process.stdin,
-          stdout: process.stdout,
-          stderr: process.stderr,
-        },
-      });
-    } catch (error) {
-      console.error(error);
-      process.exit(1);
-    }
+    // TODO allow console color
+    const process = exec(package.scripts[name]);
+    process.stdout.on('data', data => console.log(data));
+    process.stderr.on('data', data => console.error(data));
   } else {
     console.error(
       `${name} is not a valid command. Valid commands are: ${allowedScripts.join(', ')}`,
