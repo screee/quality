@@ -24,11 +24,11 @@
     "access": "public"
   },
   "scripts": {
-    "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; fi",
+    "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; echo 'Added .git/hooks/pre-commit'; fi",
     "lint": "yarn tsc --noEmit && eslint . && prettier . --check",
     "lint-fix": "yarn tsc --noEmit && yarn eslint . --fix && yarn prettier --write .",
     "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\""
   },
-  "version": "0.7.0"
+  "version": "0.8.0"
 }
