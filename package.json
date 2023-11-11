@@ -1,6 +1,6 @@
 {
   "bin": {
-    "scree-scripts": "./src/cli.js"
+    "scree": "./src/cli.js"
   },
   "devDependencies": {
     "@scree/eslint-config-quality": "./src/eslint",

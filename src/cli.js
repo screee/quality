@@ -15,7 +15,7 @@ if (command === 'init') {
 }
 
 async function script(name) {
-  const allowedScripts = ['lint', 'lint-fix', 'preinstall', 'precommit'];
+  const allowedScripts = ['lint', 'lint-fix', 'preinstall', 'precommit', 'install-precommit'];
 
   if (allowedScripts.includes(name)) {
     try {
