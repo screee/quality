@@ -1,0 +1,22 @@
+{
+  "author": "Lucas Wojciechowski <hello@lucaswoj.com>",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@scree/eslint-config-quality",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "eslint ."
+  },
+  "version": "1.3.0"
+}

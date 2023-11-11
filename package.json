@@ -3,26 +3,33 @@
     "scree-scripts": "./src/cli.js"
   },
   "devDependencies": {
+    "@scree/eslint-config-quality": "./src/eslint",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
-    "eslint": "^8.45.0",
-    "eslint-config-mourner": "^3.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-react": "^7.33.0",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "exports": {
+    "./prettier": "./src/prettier.json",
+    "./tsconfig": "./src/tsconfig.json"
   },
   "license": "MIT",
-  "main": "./src/eslint.js",
-  "name": "@scree/eslint-config",
+  "name": "@scree/quality",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "lint-fix": "yarn tsc --noEmit && yarn eslint . --fix && yarn prettier --write .",
+    "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; fi",
     "lint": "yarn tsc --noEmit && eslint . && prettier . --check",
-    "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then echo \"Aborting due to unstaged changes\"; exit 1; fi; (yarn run check-fix && git add -A)",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\""
+    "lint-fix": "yarn tsc --noEmit && yarn eslint . --fix && yarn prettier --write .",
+    "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('You must use Yarn to install, not NPM')\"",
+    "publish-both": "yarn publish && cd src/eslint && yarn publish"
   },
-  "version": "0.4.0"
+  "version": "0.3.0"
 }

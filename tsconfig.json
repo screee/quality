@@ -1,4 +1,4 @@
 {
-  "extends": "@scree/eslint-config-quality/src/tsconfig.json",
+  "extends": "@scree/quality/tsconfig",
   "include": ["src"]
 }
