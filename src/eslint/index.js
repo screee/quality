@@ -45,12 +45,12 @@ module.exports = {
     'react/self-closing-comp': 'error',
     'react-hooks/exhaustive-deps': 'error',
     '@typescript-eslint/adjacent-overload-signatures': 'error',
-    '@typescript-eslint/ban-ts-comment': ['error', {'ts-expect-error': 'allow-with-description'}],
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/no-namespace': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
 };

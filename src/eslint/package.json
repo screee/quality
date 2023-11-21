@@ -15,8 +15,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "test": "eslint ."
-  },
   "version": "1.4.0"
 }
