@@ -1,4 +1,3 @@
 {
-  "extends": "@scree/quality/tsconfig",
-  "include": ["src"]
+  "extends": "@scree/quality/tsconfig"
 }
