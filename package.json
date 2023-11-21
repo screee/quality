@@ -3,7 +3,7 @@
     "scree": "./src/cli.js"
   },
   "dependencies": {
-    "@scree/eslint-config-quality": "1.4.0",
+    "@scree/eslint-config-quality": "1.5.0",
     "eslint": "^8.53.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
