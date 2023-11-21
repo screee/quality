@@ -21,9 +21,7 @@ async function script(name) {
   if (allowedScripts.includes(name)) {
     // TODO allow console color
     // TODO move implementations into separate file
-    const p = exec(package.scripts[name]);
-    p.stdout.on('data', data => process.stdout.write(data));
-    p.stderr.on('data', data => process.stderr.write(data));
+    await execute(package.scripts[name]);
   } else {
     console.error(
       `${name} is not a valid command. Valid commands are: ${allowedScripts.join(', ')}`,
@@ -36,33 +34,39 @@ async function init() {
   const files = [
     '.eslintignore',
     '.eslintrc',
-    '.gitignore',
     '.prettierignore',
     '.prettierrc',
     'tsconfig.json',
+    '.vscode/settings.json',
+    '.vscode/extensions.json',
   ];
 
-  console.log(
-    await Promise.all(
-      files.map(async file => {
-        const src = Path.join(__dirname, '..', file);
-        const dst = Path.join(process.cwd(), file);
+  await Promise.all(
+    files.map(async file => {
+      const src = Path.join(__dirname, '..', file);
+      const dst = Path.join(process.cwd(), file);
 
-        try {
-          await FS.promises.copyFile(src, dst, FS.constants.COPYFILE_EXCL);
-          console.warn(`Added ${file}`);
-        } catch (error) {
-          if (error.code == 'EEXIST') {
-            console.warn(`Not overwriting ${file}`);
-          } else {
-            throw error;
-          }
-        }
+      try {
+        await FS.promises.mkdir(Path.dirname(dst), {recursive: true});
+        await FS.promises.copyFile(src, dst, FS.constants.COPYFILE_EXCL);
+        console.warn(`Added ${file}`);
+      } catch (error) {
+        console.error(error);
+      }
 
-        return dst;
-      }),
-    ),
+      return dst;
+    }),
   );
 
+  await execute('git init');
   await script('install-precommit');
+}
+
+async function execute(input) {
+  return new Promise(resolve => {
+    const p = exec(input);
+    p.stdout.on('data', data => process.stdout.write(data));
+    p.stderr.on('data', data => process.stderr.write(data));
+    p.on('close', resolve);
+  });
 }

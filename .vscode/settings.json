@@ -1,5 +1,4 @@
 {
-  "cSpell.words": ["geocode", "hillshade", "maplibre", "maplibregl", "maxzoom", "minzoom"],
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.fixAll.eslint": true,
