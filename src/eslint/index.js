@@ -29,7 +29,7 @@ module.exports = {
     'constructor-super': 'error',
     'no-const-assign': 'error',
     'no-dupe-keys': 'error',
-    'no-shadow': 'error',
+    'no-shadow': 'off',
     'no-trailing-spaces': 'error',
     'no-unreachable': 'error',
     'no-var': 'error',
@@ -53,7 +53,12 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'none',
+      },
+    ],
     '@typescript-eslint/ban-ts-ignore': 'off',
   },
 };
