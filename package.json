@@ -23,5 +23,5 @@
     "lint-fix": "yarn prettier --write . && yarn tsc --noEmit && yarn eslint --ext .js,.ts,.tsx . --fix",
     "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;"
   },
-  "version": "0.14.0"
+  "version": "0.15.0"
 }
