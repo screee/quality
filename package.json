@@ -31,7 +31,7 @@
     "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) && $GIT_INDEX_FILE != '.git/index' ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
     "precommit": "yarn lint-precommit"
   },
-  "version": "0.17.0",
+  "version": "0.18.0",
   "author": {
     "name": "Lucas Wojciechowski",
     "email": "hello@lucaswoj.com"
