@@ -25,7 +25,7 @@
     "access": "public"
   },
   "scripts": {
-    "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn --silent run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; echo 'Added .git/hooks/pre-commit'; fi",
+    "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; echo 'Added .git/hooks/pre-commit'; fi",
     "lint": "echo '\n\u001b[1mprettier\u001b[0m' && prettier . --check && echo '\n\u001b[1mtsc\u001b[0m' && tsc --noEmit && echo '\n\u001b[1meslint\u001b[0m' && eslint --ext .js,.ts,.tsx . && echo ''",
     "lint-fix": "echo '\n\u001b[1mprettier\u001b[0m' && prettier --write . && echo '\n\u001b[1mtsc\u001b[0m' && tsc --noEmit && echo '\n\u001b[1meslint\u001b[0m' && eslint --ext .js,.ts,.tsx . --fix && echo ''",
     "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) || $GIT_INDEX_FILE != '.git/index' ]]; then yarn --silent run lint; else (yarn --silent run lint-fix && git add -A); fi;",
