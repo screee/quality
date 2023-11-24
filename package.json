@@ -28,7 +28,7 @@
     "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; echo 'Added .git/hooks/pre-commit'; fi",
     "lint": "prettier . --check && yarn tsc --noEmit && eslint --ext .js,.ts,.tsx .",
     "lint-fix": "yarn prettier --write . && yarn tsc --noEmit && yarn eslint --ext .js,.ts,.tsx . --fix",
-    "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
+    "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) && $GIT_INDEX_FILE != '.git/index' ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
     "precommit": "yarn lint-precommit"
   },
   "version": "0.17.0",
