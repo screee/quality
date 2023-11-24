@@ -5,7 +5,13 @@
   "dependencies": {
     "@scree/eslint-config-quality": "1.6.0",
     "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.10.0",
     "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
@@ -25,7 +31,7 @@
     "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
     "precommit": "yarn lint-precommit"
   },
-  "version": "0.16.0",
+  "version": "0.17.0",
   "author": {
     "name": "Lucas Wojciechowski",
     "email": "hello@lucaswoj.com"
