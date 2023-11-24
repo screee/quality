@@ -19,14 +19,7 @@ if (command === 'init') {
  * @param {string} name
  */
 async function script(name) {
-  const allowedScripts = [
-    'lint',
-    'lint-fix',
-    'preinstall',
-    'lint-precommit',
-    'precommit',
-    'install-precommit',
-  ];
+  const allowedScripts = ['lint', 'lint-fix', 'lint-precommit', 'install-precommit'];
 
   if (allowedScripts.includes(name)) {
     // TODO move implementations into separate file
