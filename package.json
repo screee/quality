@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "@scree/eslint-config-quality": "1.6.0",
+    "@types/node": "^20.10.0",
     "eslint": "^8.53.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
@@ -21,7 +22,12 @@
     "install-precommit": "if [ -f .git/hooks/pre-commit ]; then echo 'Not overwriting .git/hooks/pre-commit'; else echo '#!/bin/sh\nyarn run precommit' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit; echo 'Added .git/hooks/pre-commit'; fi",
     "lint": "prettier . --check && yarn tsc --noEmit && eslint --ext .js,.ts,.tsx .",
     "lint-fix": "yarn prettier --write . && yarn tsc --noEmit && yarn eslint --ext .js,.ts,.tsx . --fix",
-    "precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;"
+    "lint-precommit": "if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then yarn run lint; else (yarn run lint-fix && git add -A); fi;",
+    "precommit": "yarn lint-precommit"
   },
-  "version": "0.15.0"
+  "version": "0.15.0",
+  "author": {
+    "name": "Lucas Wojciechowski",
+    "email": "hello@lucaswoj.com"
+  }
 }

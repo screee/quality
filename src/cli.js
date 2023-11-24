@@ -2,8 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const {exec} = require('child_process');
-const package = require('../package.json');
+const {spawn} = require('child_process');
+const packageJson = require('../package.json');
 const FS = require('fs');
 const Path = require('path');
 
@@ -15,13 +15,23 @@ if (command === 'init') {
   script(command);
 }
 
+/**
+ * @param {string} name
+ */
 async function script(name) {
-  const allowedScripts = ['lint', 'lint-fix', 'preinstall', 'precommit', 'install-precommit'];
+  const allowedScripts = [
+    'lint',
+    'lint-fix',
+    'preinstall',
+    'lint-precommit',
+    'precommit',
+    'install-precommit',
+  ];
 
   if (allowedScripts.includes(name)) {
-    // TODO allow console color
     // TODO move implementations into separate file
-    await execute(package.scripts[name]);
+    // @ts-expect-error - we check that name is a valid script using the allowedScripts array above
+    await execute(packageJson.scripts[name]);
   } else {
     console.error(
       `${name} is not a valid command. Valid commands are: ${allowedScripts.join(', ')}`,
@@ -62,11 +72,16 @@ async function init() {
   await script('install-precommit');
 }
 
+/**
+ * @param {string} input
+ * @returns
+ */
 async function execute(input) {
   return new Promise(resolve => {
-    const p = exec(input);
-    p.stdout.on('data', data => process.stdout.write(data));
-    p.stderr.on('data', data => process.stderr.write(data));
-    p.on('close', resolve);
+    const child = spawn(input, {stdio: 'inherit'});
+    child.on('close', code => {
+      if (code === 0) resolve(code);
+      else process.exit(code ?? 1);
+    });
   });
 }
