@@ -53,12 +53,8 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        args: 'none',
-      },
-    ],
+    // this rule is broken in many cases and tsc also catches these errors
+    '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
   },
 };
