@@ -15,4 +15,7 @@ eslintVersion=`jq -r '.version' src/eslint/package.json`
 nextPackage=`jq ".dependencies.\"@scree/eslint-config-quality\" = \"$eslintVersion\"" package.json`
 echo -E "${nextPackage}" > package.json
 
+git add package.json
+git commit -am "Bump @scree/eslint-config-quality to ${eslintVersion}"
+
 yarn --cwd . publish
