@@ -1,7 +1,9 @@
 {
   "arrowParens": "avoid",
   "bracketSpacing": false,
+  "experimentalTernaries": true,
   "jsxSingleQuote": true,
   "printWidth": 100,
+  "proseWrap": "always",
   "singleQuote": true
 }

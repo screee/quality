@@ -3,6 +3,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:import/errors',
+    'plugin:import/typescript',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -23,6 +25,10 @@ module.exports = {
     react: {
       version: '18.2',
     },
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'import'],
   rules: {
@@ -36,6 +42,7 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'prefer-const': 'error',
     'prefer-template': 'error',
+
     'react/jsx-filename-extension': ['error', {extensions: ['.tsx']}],
     'react/jsx-key': 'error',
     'react/jsx-no-undef': 'error',
@@ -44,6 +51,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': 'error',
     'react-hooks/exhaustive-deps': 'error',
+
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/no-array-constructor': 'error',
     '@typescript-eslint/no-empty-function': 'off',

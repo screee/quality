@@ -3,6 +3,4 @@
 
 const {execScript} = require('./execScript');
 
-// TODO add help command
-const command = process.argv[2];
-execScript(command);
+execScript(process.argv[2] ?? '');
