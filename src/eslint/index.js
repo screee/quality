@@ -3,8 +3,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:import/errors',
-    'plugin:import/typescript',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -25,12 +23,8 @@ module.exports = {
     react: {
       version: '18.2',
     },
-    'import/resolver': {
-      typescript: true,
-      node: true,
-    },
   },
-  plugins: ['react', '@typescript-eslint', 'react-hooks', 'import'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
     'constructor-super': 'error',
     'no-const-assign': 'error',
