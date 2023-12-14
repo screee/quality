@@ -33,6 +33,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'no-unreachable': 'error',
     'no-var': 'error',
+    'no-warning-comments': 'error',
     'prefer-arrow-callback': 'error',
     'prefer-const': 'error',
     'prefer-template': 'error',
