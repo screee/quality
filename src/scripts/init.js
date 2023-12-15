@@ -18,7 +18,7 @@ async function main() {
 
   await Promise.all(
     files.map(async file => {
-      const src = Path.join(__dirname, '..', file);
+      const src = Path.join(__dirname, '..', '..', file);
       const dst = Path.join(process.cwd(), file);
 
       try {
