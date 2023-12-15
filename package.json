@@ -31,7 +31,7 @@
     "lint-precommit": "scree lint-precommit",
     "precommit": "scree lint-precommit"
   },
-  "version": "1.14.0",
+  "version": "1.15.0",
   "author": {
     "name": "Lucas Wojciechowski",
     "email": "hello@lucaswoj.com"
