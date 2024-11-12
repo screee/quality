@@ -9,15 +9,15 @@ if [[ -n $(git ls-files . --exclude-standard --others --modified) ]]; then
   exit 1
 fi
 
-yarn --cwd ./src/eslint publish --no-git-tag-version
+npm --cwd ./src/eslint publish --no-git-tag-version
 
 eslintVersion=`jq -r '.version' src/eslint/package.json`
 nextPackage=`jq ".dependencies.\"@scree/eslint-config-quality\" = \"$eslintVersion\"" package.json`
 echo -E "${nextPackage}" > package.json
 
-yarn lint-fix
+npm run lint-fix
 git add package.json
 git add src/eslint/package.json
 git commit -m "Bump @scree/eslint-config-quality to ${eslintVersion}"
 
-yarn --cwd . publish --new-version $eslintVersion
+npm --cwd . publish --new-version $eslintVersion
