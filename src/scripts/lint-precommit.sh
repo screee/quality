@@ -11,7 +11,7 @@ if [[ -n $(git ls-files . --exclude-standard --others --modified) ]] && ! git di
   exit 1
 fi
 
-yarn run --silent lint-fix
+npm run --silent lint-fix
 
 afterDiff=`git diff`
 

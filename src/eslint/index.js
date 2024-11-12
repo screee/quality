@@ -37,6 +37,9 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'prefer-const': 'error',
     'prefer-template': 'error',
+    eqeqeq: 'error',
+    'no-console': 'error',
+    'no-debugger': 'error',
 
     'react/jsx-filename-extension': ['error', {extensions: ['.tsx']}],
     'react/jsx-key': 'error',
