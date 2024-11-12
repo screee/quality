@@ -7,7 +7,7 @@
     "scree": "./src/cli.js"
   },
   "dependencies": {
-    "@scree/eslint-config-quality": "1.16.0",
+    "@scree/eslint-config-quality": "1.17.0",
     "@types/node": "^20.17.6",
     "eslint": "^8.53.0",
     "precommit": "^1.2.2",
