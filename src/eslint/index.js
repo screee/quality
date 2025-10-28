@@ -6,24 +6,9 @@ module.exports = {
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.json',
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  env: {
-    browser: true,
-    serviceworker: true,
-    es6: true,
-    jest: true,
-  },
-  settings: {
-    react: {
-      version: '18.2',
-    },
-  },
+  parserOptions: {project: './tsconfig.json', sourceType: 'module', ecmaFeatures: {jsx: true}},
+  env: {browser: true, serviceworker: true, es6: true, jest: true},
+  settings: {react: {version: '18.2'}},
   plugins: ['react', '@typescript-eslint', 'react-hooks'],
   rules: {
     'constructor-super': 'error',
@@ -38,7 +23,6 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-template': 'error',
     eqeqeq: 'error',
-    'no-console': 'error',
     'no-debugger': 'error',
 
     'react/jsx-filename-extension': ['error', {extensions: ['.tsx']}],

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports, no-console */
+
 const FS = require('fs');
 const Path = require('path');
 const {execShell} = require('./execShell');
