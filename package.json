@@ -7,7 +7,7 @@
     "scree": "./src/cli.js"
   },
   "dependencies": {
-    "@scree/eslint-config-quality": "1.17.0",
+    "@scree/eslint-config-quality": "1.18.0",
     "@types/node": "^20.19.24",
     "eslint": "^8.57.1",
     "precommit": "^1.2.2",
@@ -34,5 +34,5 @@
     "lint": "scree lint",
     "precommit": "scree lint-precommit"
   },
-  "version": "1.16.0"
+  "version": "1.17.0"
 }
