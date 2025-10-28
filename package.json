@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "@scree/eslint-config-quality": "1.17.0",
-    "@types/node": "^20.17.6",
-    "eslint": "^8.53.0",
+    "@types/node": "^20.19.24",
+    "eslint": "^8.57.1",
     "precommit": "^1.2.2",
-    "prettier": "^3.1.1",
-    "typescript": "^5.6.3"
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
   },
   "exports": {
     "./prettier": "./src/prettier.json",
